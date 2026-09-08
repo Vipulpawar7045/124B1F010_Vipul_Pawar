@@ -1,0 +1,22 @@
+$ javac FractionalKnapsack.java
+$ java FractionalKnapsack
+
+Fractional Knapsack - Cargo Shipment
+
+Container Capacity: 1000.00 kg
+
+Product Name                   Weight       Price        Price/Weight     Taken
+Product Name 1                 0.00         0.00         000.00           Full
+Product Name 2                 0.00         0.00         000.00           Full
+Product Name 3                 0.00         0.00         000.00           Full
+Product Name 4                 0.00         0.00         000.00           Full
+Product Name 5                 0.00         0.00         000.00           Full
+Product Name 6                 0.00         0.00         000.00           Full
+Product Name 7                 0.00         0.00         000.00           Full
+Product Name 8                 0.00         0.00         000.00           Full
+Product Name 9                 0.00         0.00         000.00           Full
+Product Name 10                0.00         0.00         000.00           Partial
+
+Total Weight Used: 1000.00 kg
+Remaining Capacity: 0.00 kg
+Maximum Total Value: 00000.00
