@@ -1,0 +1,17 @@
+Enter number of items: 4
+Enter name, weight and utility of item 1:
+Food 4 40
+Enter name, weight and utility of item 2:
+Medicine 3 50
+Enter name, weight and utility of item 3:
+Blankets 5 60
+Enter name, weight and utility of item 4:
+Water 2 30
+Enter truck capacity: 10
+
+Maximum Total Utility: 140
+Selected Items:
+Medicine
+Blankets
+Water
+Total Weight: 10 kg
