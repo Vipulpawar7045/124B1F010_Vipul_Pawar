@@ -1,3 +1,21 @@
+Enter number of conflicts: 5
+Enter conflicting pairs (u v):
+0 1
+0 2
+1 2
+2 3
+3 4
+Enter number of rooms: 2
+Enter capacity of each room:
+60
+50
+Enter student count for DAA, AIML, SPM, EAC, MDM-3:
+60
+50
+45
+40
+35
+
 Subjects:
 0 - DAA
 1 - AIML
@@ -6,29 +24,22 @@ Subjects:
 4 - MDM-3
 Enter number of conflicts: 5
 Enter conflicting pairs (u v):
-0 1
-0 2
-1 2
-2 3
-3 4
-Enter number of rooms: 3
+Enter number of rooms: 2
 Enter capacity of each room:
-150 100 80
 Enter student count for DAA, AIML, SPM, EAC, MDM-3:
-120 120 100 80 60
 
 ----- EXAM TIMETABLE -----
 
-Slot 1:
-DAA (120 students) - Room 1
-EAC (80 students) - Room 3
+Color: Red (Slot 1):
+DAA (60 students) - Room 1
+EAC (40 students) - Room 2
 
-Slot 2:
-AIML (120 students) - Room 1
-MDM-3 (60 students) - Room 3
+Color: Green (Slot 2):
+AIML (50 students) - Room 1
+MDM-3 (35 students) - Room 2
 
-Slot 3:
-SPM (100 students) - Room 2
+Color: Yellow (Slot 3):
+SPM (45 students) - Room 1
 
 Total exam slots: 3
 All examinations have suitable rooms.
