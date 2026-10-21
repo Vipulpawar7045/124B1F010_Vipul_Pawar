@@ -9,20 +9,17 @@ public class FractionalKnapsack {
         double price;
         double ratio;
 
-        Item(String name, double weight, double price) {
+        Item(String name, double price, double weight) {
             this.name = name;
-            this.weight = weight;
             this.price = price;
+            this.weight = weight;
             this.ratio = price / weight;
         }
     }
 
     static void sortItems(Item[] items) {
-        Arrays.sort(items, new Comparator<Item>() {
-            public int compare(Item a, Item b) {
-                return Double.compare(b.ratio, a.ratio);
-            }
-        });
+        Arrays.sort(items,
+                (a, b) -> Double.compare(b.ratio, a.ratio));
     }
 
     static String[] parseCSV(String line) {
@@ -44,7 +41,6 @@ public class FractionalKnapsack {
         }
 
         fields.add(field.toString().trim());
-
         return fields.toArray(new String[0]);
     }
 
@@ -55,15 +51,21 @@ public class FractionalKnapsack {
 
         ArrayList<Item> itemList = new ArrayList<>();
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
+        System.out.println("\n==============================================================");
+        System.out.println("              FRACTIONAL KNAPSACK ALGORITHM");
+        System.out.println("                  CARGO SHIPMENT SYSTEM");
+        System.out.println("==============================================================");
+
+        System.out.printf("Container Capacity : %.2f kg%n", capacity);
+
+        try (BufferedReader br =
+                     new BufferedReader(new FileReader(fileName))) {
 
             br.readLine();
 
             String line;
 
             while ((line = br.readLine()) != null) {
-
                 String[] data = parseCSV(line);
 
                 if (data.length < 3) {
@@ -75,83 +77,114 @@ public class FractionalKnapsack {
                     double price = Double.parseDouble(data[1]);
                     double weight = Double.parseDouble(data[2]);
 
-                    if (weight > 0 && price > 0) {
-                        itemList.add(new Item(name, weight, price));
+                    if (price > 0 && weight > 0) {
+                        itemList.add(new Item(name, price, weight));
                     }
 
                 } catch (NumberFormatException e) {
-                    continue;
+                    System.out.println("Skipping invalid CSV row.");
                 }
             }
 
-            br.close();
+            if (itemList.isEmpty()) {
+                System.out.println("\nNo valid products found.");
+                return;
+            }
 
             Item[] items = itemList.toArray(new Item[0]);
 
             sortItems(items);
 
+            System.out.println("\nPRODUCTS SORTED BY VALUE PER KG");
+            System.out.println("==============================================================");
+
+            System.out.printf("%-22s %12s %12s %12s%n",
+                    "PRODUCT NAME", "WEIGHT (KG)", "PRICE", "VALUE/KG");
+
+            System.out.println("--------------------------------------------------------------");
+
+            for (Item item : items) {
+                System.out.printf("%-22.22s %12.2f %12.2f %12.2f%n",
+                        item.name,
+                        item.weight,
+                        item.price,
+                        item.ratio);
+            }
+
             double remainingCapacity = capacity;
-            double totalValue = 0.0;
-            double totalWeight = 0.0;
+            double totalWeight = 0;
+            double totalValue = 0;
 
-            System.out.println();
-            System.out.println("Fractional Knapsack - Cargo Shipment");
-            System.out.println();
-            System.out.printf("Container Capacity: %.2f kg%n", capacity);
-            System.out.println();
+            System.out.println("\nCARGO ALLOCATION REPORT");
+            System.out.println("==========================================================================");
 
-            System.out.printf("%-30s %-12s %-12s %-15s %-12s%n",
-                    "Product Name", "Weight", "Price", "Price/Weight", "Taken");
+            System.out.printf("%-22s %12s %12s %14s %12s%n",
+                    "PRODUCT NAME", "TAKEN (KG)", "VALUE/KG",
+                    "VALUE GAINED", "STATUS");
 
-            int count = 0;
+            System.out.println("--------------------------------------------------------------------------");
 
             for (Item item : items) {
 
-                if (remainingCapacity <= 0 || count == 15) {
+                if (remainingCapacity <= 0) {
                     break;
                 }
 
                 double takenWeight;
                 double obtainedValue;
-                String taken;
+                String status;
 
                 if (item.weight <= remainingCapacity) {
 
                     takenWeight = item.weight;
                     obtainedValue = item.price;
-                    taken = "Full";
+                    status = "FULL";
 
                 } else {
 
                     takenWeight = remainingCapacity;
-                    obtainedValue = item.price * (remainingCapacity / item.weight);
-                    taken = "Partial";
+                    obtainedValue = item.ratio * takenWeight;
+                    status = "PARTIAL";
                 }
 
                 totalWeight += takenWeight;
                 totalValue += obtainedValue;
                 remainingCapacity -= takenWeight;
 
-                System.out.printf("%-30s %-12.2f %-12.2f %-15.2f %-12s%n",
+                System.out.printf("%-22.22s %12.2f %12.2f %14.2f %12s%n",
                         item.name,
                         takenWeight,
-                        obtainedValue,
                         item.ratio,
-                        taken);
-
-                count++;
+                        obtainedValue,
+                        status);
             }
 
-            System.out.println();
-            System.out.printf("Total Weight Used: %.2f kg%n", totalWeight);
-            System.out.printf("Remaining Capacity: %.2f kg%n", remainingCapacity);
-            System.out.printf("Maximum Total Value: %.2f%n", totalValue);
+            System.out.println("--------------------------------------------------------------------------");
+
+            System.out.println("\nFINAL OPTIMIZATION SUMMARY");
+            System.out.println("==============================================================");
+
+            System.out.printf("Total Products Available : %d%n", items.length);
+            System.out.printf("Container Capacity       : %.2f kg%n", capacity);
+            System.out.printf("Total Weight Loaded      : %.2f kg%n", totalWeight);
+            System.out.printf("Remaining Capacity       : %.2f kg%n",
+                    Math.max(0, remainingCapacity));
+
+            System.out.printf("Capacity Utilization     : %.2f%%%n",
+                    totalWeight / capacity * 100);
+
+            System.out.printf("Maximum Total Value      : Rs. %.2f%n", totalValue);
+
+            System.out.println("==============================================================");
+            System.out.println("    OPTIMAL CARGO ALLOCATION COMPLETED SUCCESSFULLY");
+            System.out.println("==============================================================");
 
         } catch (FileNotFoundException e) {
-            System.out.println("shipping_data.csv file not found.");
+            System.out.println("\nERROR: shipping_data.csv was not found.");
+            System.out.println("Place it in the program's working directory.");
 
         } catch (IOException e) {
-            System.out.println("Error while reading the dataset.");
+            System.out.println("\nERROR: Unable to read the CSV file.");
         }
     }
 }
