@@ -1,0 +1,51 @@
+Enter number of items: 4
+
+Item 1
+Item Name: Food
+Weight (kg): 4
+Utility Score: 40
+
+Item 2
+Item Name: Medicines
+Weight (kg): 3
+Utility Score: 50
+
+Item 3
+Item Name: Blankets
+Weight (kg): 5
+Utility Score: 60
+
+Item 4
+Item Name: Water
+Weight (kg): 2
+Utility Score: 30
+
+Enter truck capacity (kg): 10
+
+
+==============================================================
+                 OPTIMIZATION RESULTS
+==============================================================
+ITEM NAME          WEIGHT (KG)  UTILITY         STATUS
+--------------------------------------------------------------
+Food               4            40              NOT SELECTED
+Medicines          3            50              SELECTED
+Blankets           5            60              SELECTED
+Water              2            30              SELECTED
+--------------------------------------------------------------
+
+                 FINAL SUMMARY
+--------------------------------------------------------------
+Truck Capacity       : 10 kg
+Total Weight Loaded  : 10 kg
+Remaining Capacity   : 0 kg
+Maximum Total Utility: 140
+
+Selected Relief Items:
+  [+] Medicines | Weight: 3 kg | Utility: 50
+  [+] Blankets | Weight: 5 kg | Utility: 60
+  [+] Water | Weight: 2 kg | Utility: 30
+
+==============================================================
+   Optimal resource allocation completed successfully!
+==============================================================
