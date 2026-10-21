@@ -1,0 +1,48 @@
+==============================================================
+PRODUCTS SORTED BY VALUE PER KG
+==============================================================
+PRODUCT NAME            WEIGHT (KG)        PRICE      VALUE/KG
+--------------------------------------------------------------
+MedicalKits                  100.00     12000.00       120.00
+SanitaryKits                 100.00      8500.00        85.00
+SolarLamps                   120.00     10000.00        83.33
+BabyFood                     100.00      8000.00        80.00
+RescueEquipment              250.00     18000.00        72.00
+FirstAidBoxes                150.00      9000.00        60.00
+HygieneKits                  130.00      6500.00        50.00
+EmergencyTents               300.00     15000.00        50.00
+MilkPowder                   150.00      7500.00        50.00
+CookingOil                   100.00      4500.00        45.00
+CannedFood                   250.00      7000.00        28.00
+PremiumRice                  200.00      5000.00        25.00
+DrinkingWater                300.00      6000.00        20.00
+Blankets                     200.00      3500.00        17.50
+WheatFlour                   250.00      4000.00        16.00
+
+
+
+
+==========================================================================
+PRODUCT NAME             TAKEN (KG)      VALUE/KG   VALUE GAINED       STATUS
+--------------------------------------------------------------------------
+MedicalKits                  100.00       120.00       12000.00         FULL
+SanitaryKits                 100.00        85.00        8500.00         FULL
+SolarLamps                   120.00        83.33       10000.00         FULL
+BabyFood                     100.00        80.00        8000.00         FULL
+RescueEquipment              250.00        72.00       18000.00         FULL
+FirstAidBoxes                150.00        60.00        9000.00         FULL
+HygieneKits                  130.00        50.00        6500.00         FULL
+EmergencyTents                50.00        50.00        2500.00      PARTIAL
+--------------------------------------------------------------------------
+
+FINAL OPTIMIZATION SUMMARY
+==============================================================
+Total Products Available : 15
+Container Capacity       : 1000.00 kg
+Total Weight Loaded      : 1000.00 kg
+Remaining Capacity       : 0.00 kg
+Capacity Utilization     : 100.00%
+Maximum Total Value      : Rs. 74500.00
+==============================================================
+    OPTIMAL CARGO ALLOCATION COMPLETED SUCCESSFULLY
+==============================================================
