@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class University{
+public class University {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -90,12 +90,14 @@ public class University{
             totalSlots = Math.max(totalSlots, c + 1);
         }
 
+        String[] colors = {"Red", "Green", "Yellow", "Blue", "Orange"};
+
         System.out.println("\n----- EXAM TIMETABLE -----");
 
         boolean allocationFailed = false;
 
         for (int t = 0; t < totalSlots; t++) {
-            System.out.println("\nSlot " + (t + 1) + ":");
+            System.out.println("\nColor: " + colors[t] + " (Slot " + (t + 1) + "):");
 
             boolean[] occupied = new boolean[roomCount];
 
