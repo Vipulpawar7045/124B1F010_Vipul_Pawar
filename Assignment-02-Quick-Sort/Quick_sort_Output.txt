@@ -4,13 +4,13 @@ $ java NetflixQuickSort
 Netflix Content Sorted by Release Year
 
 Show ID      Type         Title                                         Release Year
-s100         Movie        Example Movie                                  1925
-s200         Movie        Example Movie                                  1942
-s300         Movie        Example Movie                                  1944
-s400         Movie        Example Movie                                  1954
-s500         Movie        Example Movie                                  1955
-s600         Movie        Example Movie                                  1956
-s700         Movie        Example Movie                                  1958
-s800         Movie        Example Movie                                  1959
-s900         Movie        Example Movie                                  1960
-s1000        Movie        Example Movie                                  1961
+s100         Movie        The Lost World                                 1925
+s200         Movie        The Great Dictator                             1940
+s300         Movie        Double Indemnity                               1944
+s400         Movie        Seven Samurai                                  1954
+s500         Movie        Pather Panchali                                1955
+s600         Movie        The Ten Commandments                           1956
+s700         Movie        Vertigo                                        1958
+s800         Movie        North by Northwest                             1959
+s900         Movie        Psycho                                         1960
+s1000        Movie        Breakfast at Tiffany's                         1961
