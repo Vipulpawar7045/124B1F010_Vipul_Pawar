@@ -1,3 +1,12 @@
+Input
+
+Dataset: shipping_data.csv
+Maximum Capacity: 1000 kg
+Selection Criteria: Maximum value-to-weight ratio
+Sorting Order: Descending
+
+Output
+
 ==============================================================
 PRODUCTS SORTED BY VALUE PER KG
 ==============================================================
