@@ -1,3 +1,9 @@
+Input
+
+Enter the column to sort by: Release Year
+
+Output
+
 $ javac NetflixQuickSort.java
 $ java NetflixQuickSort
 
